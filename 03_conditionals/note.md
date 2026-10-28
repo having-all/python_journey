@@ -20,3 +20,14 @@
 | or | chest_pain or spo2_low | 흉통, 산소포화도 저하: 둘 중 하나 True |
 | not | not is_pregnant | 참, 거짓 반전 |
 | is None | patient_id is None | 값이 비어 있는가? |
+
+> # Falsy 값: None, False, 0, " ", [], {}, set()은 조건에서 거짓으로 취급된다. 그래서 "비어 있는지"를 짧게 확인할 수 있다.
+
+## 3-3. 삼항 연산자와 문자열 메서드
+> 참일 때 값 if 조건 else 거짓일 때 값 형태로 두 갈래 분기를 한 줄에 쓸 수 있다. 조건이 3개 이상이면 if/elif/else가 더 읽기 쉽다.
+
+## 자주하는 실수
+- 콜론(:) 빠뜨림  → SyntaxError
+- 들여쓰기에 탭과 스페이스를 섞음 → IndentationError. 탭아나 스페이스 4칸 둘 중하나로 통일
+- elif 순서 문제 → 처음 True인 블록만 실행되므로, elif hr >= 60: 다음에 오는 elif hr <= 100:은 절대 실행되지 않는다. 심박수는 < 60, <= 100, else 순서로 쓴다.
+- if x == 1 or 2:는 항상 참이다. → if x == 1 or x ==2 또는 if x in (1, 2)로 써야함
